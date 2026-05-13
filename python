@@ -1,0 +1,256 @@
+1.# Train Seat Reservation System
+
+# Create 20 seats initialized to 0
+seats = [0] * 20
+
+while True:
+    print("\n1. Book Seat")
+    print("2. Cancel Seat")
+    print("3. Show Seats")
+    print("4. Booking Percentage")
+    print("5. Exit")
+
+    choice = int(input("Enter your choice: "))
+
+    if choice == 1:
+        seat_no = int(input("Enter seat number (1-20): "))
+
+        if seats[seat_no - 1] == 0:
+            seats[seat_no - 1] = 1
+            print("Seat booked successfully.")
+        else:
+            print("Seat already booked.")
+
+    elif choice == 2:
+        seat_no = int(input("Enter seat number (1-20): "))
+
+        if seats[seat_no - 1] == 1:
+            seats[seat_no - 1] = 0
+            print("Seat cancelled successfully.")
+        else:
+            print("Seat is already available.")
+
+    elif choice == 3:
+        print("\nSeat Status:")
+        for i in range(20):
+            status = "Booked" if seats[i] == 1 else "Available"
+            print("Seat", i + 1, ":", status)
+
+    elif choice == 4:
+        booked = seats.count(1)
+        percentage = (booked / 20) * 100
+        print("Booking Percentage:", percentage, "%")
+
+    elif choice == 5:
+        print("Exiting Program...")
+        break
+
+    else:
+        print("Invalid choice")
+
+
+2.# YouTube Playlist Analyzer
+
+videos = [12, 4, 8, 15, 3, 20]
+
+# Total watch time
+total_time = sum(videos)
+
+# Longest video
+longest_video = max(videos)
+
+# Average duration
+average_duration = total_time / len(videos)
+
+# Videos shorter than 5 minutes
+short_videos = []
+
+for video in videos:
+    if video < 5:
+        short_videos.append(video)
+
+print("Video Durations:", videos)
+print("Total Watch Time:", total_time, "minutes")
+print("Longest Video:", longest_video, "minutes")
+print("Average Duration:", average_duration, "minutes")
+print("Videos shorter than 5 minutes:", short_videos)
+3.hashtags = ["#fun", "#python", "#fun", "#code", "#python"]
+
+# Frequency of each hashtag
+frequency = {}
+
+for tag in hashtags:
+    if tag in frequency:
+        frequency[tag] += 1
+    else:
+        frequency[tag] = 1
+
+# Most repeated hashtag
+most_repeated = max(frequency, key=frequency.get)
+
+# Unique hashtags
+unique_hashtags = list(set(hashtags))
+
+# Remove duplicates
+no_duplicates = []
+
+for tag in hashtags:
+    if tag not in no_duplicates:
+        no_duplicates.append(tag)
+
+print("Hashtags:", hashtags)
+print("Most Repeated Hashtag:", most_repeated)
+print("Unique Hashtags:", unique_hashtags)
+print("Frequency of Each Hashtag:", frequency)
+print("Without Duplicates:", no_duplicates)
+# Social Media Hashtag Tracker
+
+3.hashtags = ["#fun", "#python", "#fun", "#code", "#python"]
+
+# Frequency of each hashtag
+frequency = {}
+
+for tag in hashtags:
+    if tag in frequency:
+        frequency[tag] += 1
+    else:
+        frequency[tag] = 1
+
+# Most repeated hashtag
+most_repeated = max(frequency, key=frequency.get)
+
+# Unique hashtags
+unique_hashtags = list(set(hashtags))
+
+# Remove duplicates
+no_duplicates = []
+
+for tag in hashtags:
+    if tag not in no_duplicates:
+        no_duplicates.append(tag)
+
+print("Hashtags:", hashtags)
+print("Most Repeated Hashtag:", most_repeated)
+print("Unique Hashtags:", unique_hashtags)
+print("Frequency of Each Hashtag:", frequency)
+print("Without Duplicates:", no_duplicates)
+4.# Expense Splitter
+
+expenses = [1200, 850, 1500, 950]
+
+# Total expense
+total = sum(expenses)
+
+# Average share
+average = total / len(expenses)
+
+# Highest payer
+highest_paid = max(expenses)
+
+# Equal contribution
+print("Expenses:", expenses)
+print("Total Expense:", total)
+print("Average Share:", average)
+print("Highest Amount Paid:", highest_paid)
+
+print("\nAmount each friend should contribute equally:")
+
+for i in range(len(expenses)):
+    difference = expenses[i] - average
+
+    if difference > 0:
+        print("Friend", i + 1, "should receive", difference)
+    elif difference < 0:
+        print("Friend", i + 1, "should pay", abs(difference))
+    else:
+        print("Friend", i + 1, "is settled")
+
+5.# Pattern Compression
+
+data = [1, 1, 1, 2, 2, 3, 3, 3]
+
+compressed = []
+
+count = 1
+
+for i in range(len(data) - 1):
+
+    if data[i] == data[i + 1]:
+        count += 1
+    else:
+        compressed.append((data[i], count))
+        count = 1
+
+# Add last element
+compressed.append((data[-1], count))
+
+print("Input:", data)
+print("Compressed Output:", compressed)
+
+6.# Mini Shopping Cart System
+
+cart = []
+prices = []
+
+while True:
+
+    print("\n1. Add Item")
+    print("2. Remove Item")
+    print("3. Search Item")
+    print("4. Calculate Total Bill")
+    print("5. Show Duplicate Items")
+    print("6. Display Cart")
+    print("7. Exit")
+
+    choice = int(input("Enter your choice: "))
+
+    if choice == 1:
+        item = input("Enter item name: ")
+        price = float(input("Enter item price: "))
+
+        cart.append(item)
+        prices.append(price)
+
+        print("Item added successfully.")
+
+    elif choice == 2:
+        item = input("Enter item to remove: ")
+
+        if item in cart:
+            index = cart.index(item)
+            cart.pop(index)
+            prices.pop(index)
+            print("Item removed.")
+        else:
+            print("Item not found.")
+
+    elif choice == 3:
+        item = input("Enter item to search: ")
+
+        if item in cart:
+            print(item, "is available in cart.")
+        else:
+            print(item, "not found.")
+
+    elif choice == 4:
+        total_bill = sum(prices)
+        print("Total Bill =", total_bill)
+
+    elif choice == 5:
+        duplicates = []
+
+        for item in cart:
+            if cart.count(item) > 1 and item not in duplicates:
+                duplicates.append(item)
+
+        print("Duplicate Items:", duplicates)
+
+    elif choice == 6:
+        print("Cart Items:", cart)
+
+    elif choice == 7:
+        print("Exiting Program...")
+        break
+
+    else:
+        print("Invalid choice")
